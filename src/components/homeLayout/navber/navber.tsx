@@ -29,11 +29,11 @@ const Navber = () => {
             <ul className=" flex space-x-3">
               {navItems.map((item) => (
                 <li
-                  key={item.name}
+                  key={item?.name}
                   className="px-1 py-1 rounded-md hover:bg-hoverbtn transition-all duration-300 ease-in-out"
                 >
                   <Link
-                    href={item.path}
+                    href={item?.path}
                     className="hover:text-white text-txcolor transition-colors"
                   >
                     {item.name}
@@ -84,12 +84,12 @@ const Navber = () => {
           <ul className="flex flex-col gap-2">
             {navItems.map((item) => (
               <li
-                key={item.name}
+                key={item?.name}
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="hover:bg-txcolor text-black"
               >
                 <Link
-                  href={item.path}
+                  href={item?.path}
                   className="hover:text-gray-300 text-txcolor transition-colors"
                 >
                   {item.name}

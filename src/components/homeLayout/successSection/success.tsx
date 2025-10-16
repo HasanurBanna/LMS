@@ -25,8 +25,8 @@ const SuccessSection = () => {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 justify-center">
             {stats.map((item, index) => (
               <div key={index}>
-                <div className="text-4xl font-semibold bg-gradient-to-r from-blue-000 via-bgprimary to-bgsecondary bg-clip-text text-transparent">{item.number}</div>
-                <div className="text-gray-800 text-lg mt-1">{item.label}</div>
+                <div className="text-4xl font-semibold bg-gradient-to-r from-blue-000 via-bgprimary to-bgsecondary bg-clip-text text-transparent">{item?.number}</div>
+                <div className="text-gray-800 text-lg mt-1">{item?.label}</div>
               </div>
             ))}
           </div>
