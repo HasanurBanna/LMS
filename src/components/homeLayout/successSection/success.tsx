@@ -12,9 +12,9 @@ const SuccessSection = () => {
   return (
     <>
       <div className="flex justify-center px-15 py-10">
-        <section className="container text-center space-y-5">
+        <section className="container text-center space-y-10">
           <div className="max-w-2xl mx-auto">
-            <h1 className="font-semibold text-3xl">Our Success</h1>
+            <h1 className="font-semibold text-3xl mb-5">Our Success</h1>
             <p className="flex justify-center items-center text-sm md:text-lg">
               Ornare id fames interdum porttitor nulla turpis etiam. Diam vitae
               sollicitudin at nec nam et pharetra gravida. Adipiscing a quis
