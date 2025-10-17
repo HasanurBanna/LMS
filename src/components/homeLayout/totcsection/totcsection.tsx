@@ -5,7 +5,7 @@ import Image from "next/image";
 const Totcsection = () => {
   return (
     <>
-      <section className="flex flex-col justify-center items-center px-15 py-16">
+      <section className="flex flex-col justify-center items-center px-15">
         <div className=" text-center mb-10">
           <h1 className="text-2xl font-semibold mb-5">
             <span className="text-[#2F327D] ">What is</span>{" "}

@@ -47,7 +47,7 @@ const Cloudsoftware = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="relative flex flex-col items-center bg-white p-6 shadow-[0_0_15px_rgba(0,0,0,0.10)] rounded-xl"
+                className="relative flex flex-col items-center bg-white p-6 shadow-[0_0_15px_rgba(0,0,0,0.15)] rounded-xl"
               >
                 <div
                   className={`${feature?.coloricon} absolute -top-7 left-0 right-0 p-5 text-white text-3xl rounded-full`}
