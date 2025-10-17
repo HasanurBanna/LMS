@@ -11,8 +11,8 @@ const SuccessSection = () => {
 
   return (
     <>
-      <div className="flex justify-center">
-        <section className="container text-center space-y-5 px-15 py-10">
+      <div className="flex justify-center px-15 py-10">
+        <section className="container text-center space-y-5">
           <div className="max-w-2xl mx-auto">
             <h1 className="font-semibold text-3xl">Our Success</h1>
             <p className="flex justify-center items-center text-sm md:text-lg">

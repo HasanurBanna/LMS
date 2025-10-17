@@ -8,7 +8,8 @@
   --logocolor: #b13bff;
   --textcolor: #ffcc00;
   --textspencolor: #ffffff;
-  --btnhover: #687FE5;
+  --btnhover: #687fe5;
+  --colorfooterbg: #252641;
 }
 
 @theme inline {
@@ -20,6 +21,7 @@
   --color-txcolor: var(--textcolor);
   --color-txspncolor: var(--textspencolor);
   --color-hoverbtn: var(--btnhover);
+  --color-bgfooter: var(--colorfooterbg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

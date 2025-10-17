@@ -28,8 +28,8 @@ const Cloudsoftware = () => {
 
   return (
     <>
-      <div className="flex justify-center">
-        <section className="container px-15 py-16 text-center">
+      <div className="flex justify-center px-15 py-16 ">
+        <section className="container text-center">
           {/* All-In-One */}
           <div className="flex flex-col justify-center items-center gap-5">
             <h1 className="text-2xl font-semibold">
@@ -57,7 +57,9 @@ const Cloudsoftware = () => {
                 <h1 className="mt-12 text-bgprimary text-2xl mb-4">
                   {feature?.title}
                 </h1>
-                <p className="text-justify text-gray-400">{feature?.description}</p>
+                <p className="text-justify text-gray-400">
+                  {feature?.description}
+                </p>
               </div>
             ))}
           </div>
