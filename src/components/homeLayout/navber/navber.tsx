@@ -2,12 +2,60 @@
 
 import Logo from "@/components/logo/logo";
 import Link from "next/link";
-import { useState } from "react";
-import { IoMdClose, IoMdMenu } from "react-icons/io";
+import { useEffect, useState } from "react";
+import { IoIosMoon, IoMdClose, IoMdMenu, IoMdSunny } from "react-icons/io";
 
 const Navber = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState("light");
+  const [isSticky, setIsSticky] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+  const [lastScroll, setLastScroll] = useState(0);
 
+  // Scroll logic for sticky + smoth hide/show
+  useEffect(() => {
+    const handlScroll = () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll === 0) {
+        setIsSticky(false);
+        setShowNav(true);
+      } else if (currentScroll < lastScroll) {
+        setIsSticky(true);
+        setShowNav(true);
+      } else {
+        setShowNav(false);
+      }
+      setLastScroll(currentScroll);
+    };
+
+    window.addEventListener("scroll", handlScroll);
+    return () => window.removeEventListener("scroll", handlScroll);
+  }, [lastScroll]);
+
+  // Theme detection
+  useEffect(() => {
+    const saveTheme = localStorage.getItem("theme");
+    const systemtheme = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    if (saveTheme) {
+      setTheme(saveTheme);
+    } else if (systemtheme) {
+      setTheme("dark");
+    }
+  }, []);
+
+  useEffect(() => {
+    const html = document.documentElement;
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const themeToggle = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  // NavItems
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Courses", path: "#" },
@@ -18,7 +66,11 @@ const Navber = () => {
 
   return (
     <>
-      <nav className="bg-bgsecondary px-15 py-1 z-50">
+      <nav
+        className={`bg-bgsecondary dark:bg-bgdark px-15 py-1 transition-all duration-900 ease-in-out transform
+          ${isSticky ? "fixed top-0 left-0 right-0 z-50" : "relative"}
+          ${showNav ? "translate-y-0" : "-translate-y-full"}`}
+      >
         <div className="w-full mx-auto flex justify-between items-center">
           {/* Logo */}
           <div className="items-center">
@@ -52,23 +104,28 @@ const Navber = () => {
                 Login
               </button>
             </Link>
-            <Link href={"/authlogin"}>
-              <button
-                type="button"
-                className="bg-bgprimary cursor-pointer md:px-5 lg:px-9 py-2 rounded-full hover:bg-hoverbtn text-white hover:text-black shadow-md transition-all duration-300 ease-in-out"
-              >
-                SignUp
-              </button>
-            </Link>
+            {/* Dark Mode Button */}
+            <button
+              onClick={themeToggle}
+              className="w-8 h-8 dark:text-black text-white bg-gray-400 dark:bg-white rounded-full flex justify-center items-center"
+            >
+              {theme === "dark" ? <IoMdSunny /> : <IoIosMoon />}
+            </button>
           </div>
 
           {/* Toggle Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex justify-center items-center gap-4">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="md:hidden text-txcolor"
             >
               {menuOpen ? <IoMdClose /> : <IoMdMenu />}
+            </button>
+            <button
+              onClick={themeToggle}
+              className="w-6 h-6 p-1 dark:text-black text-white bg-gray-400 dark:bg-white rounded-full flex justify-center items-center"
+            >
+              {theme === "dark" ? <IoMdSunny /> : <IoIosMoon />}
             </button>
           </div>
         </div>

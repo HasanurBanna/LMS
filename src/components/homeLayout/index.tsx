@@ -3,8 +3,8 @@ import SuccessSection from "./successSection/success";
 import Cloudsoftware from "./cloudsoftware/cloudsoftware";
 import Totcsection from "./totcsection/totcsection";
 import Physicalclassrom from "./physicalClassroom/physicalclassrom";
-import Footer from "../footer/footer";
 import Features from "./ourfeatures/features";
+import Teacherssection from "./teachers/teacherssection";
 
 const HomeIndex = () => {
   return (
@@ -16,7 +16,7 @@ const HomeIndex = () => {
         <Totcsection />
         <Physicalclassrom />
         <Features />
-        <Footer />
+        <Teacherssection />
       </div>
     </>
   );

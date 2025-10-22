@@ -10,7 +10,7 @@ import { MdEmail } from "react-icons/md";
 const Hero = () => {
   return (
     <>
-      <section className="relative bg-bgsecondary lg:h-[500px] px-15">
+      <section className="relative bg-bgsecondary dark:bg-bgdark lg:h-[500px] px-15 transition-colors duration-900 ease-in-out">
         <div className="absolute bottom-0 left-0 right-0 w-full h-32 z-1">
           <svg
             className="w-full h-full"
@@ -18,6 +18,7 @@ const Hero = () => {
             preserveAspectRatio="none"
           >
             <path
+            className="dark:fill-bgdark transition-colors duration-900 ease-in-out"
               fill="#ffffff"
               d="M0,160 C360,320 1080,0 1440,160 L1440,320 L0,320 Z"
             />

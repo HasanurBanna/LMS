@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* Normal Mode */
 :root {
+  /* Normal Mode */
   --background: #ffffff;
   --foreground: #171717;
+  /* DarkMode */
+  --backgroundark: #37353e;
+  --forgrounddark: #ffffff;
   --primary: #6600ff;
   --secondary: #542994;
   --logocolor: #b13bff;
@@ -15,6 +22,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* dark mode */
+  --color-bgdark: var(--backgroundark);
+  --color-fgdark: var(--forgrounddark);
+
   --color-bgprimary: var(--primary);
   --color-bgsecondary: var(--secondary);
   --color-bglogo: var(--logocolor);
@@ -26,12 +38,27 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
+[data-theme="dark"] {
+  --forground: #ffffff;
+}
+
+#dark-mode-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -9999;
+
+  clip-path: circle(0% at 0% 100%);
+  background-color: #37353e;
+  transition: clip-path 0.7s ease-in-out;
+}
+
+[data-theme="dark"] #dark-mode-overlay {
+  clip-path: circle(200% at 100% 100%);
+}
 
 body {
   background: var(--background);
