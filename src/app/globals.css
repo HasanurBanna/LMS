@@ -9,7 +9,7 @@
   --foreground: #171717;
   /* DarkMode */
   --backgroundark: #37353e;
-  --forgrounddark: #ffffff;
+  --forgrounddark: #CBCBCB;
   --primary: #6600ff;
   --secondary: #542994;
   --logocolor: #b13bff;
@@ -39,7 +39,7 @@
 }
 
 [data-theme="dark"] {
-  --forground: #ffffff;
+  --forground: #CBCBCB;
 }
 
 #dark-mode-overlay {

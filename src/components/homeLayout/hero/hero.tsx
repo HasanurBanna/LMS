@@ -6,6 +6,7 @@ import HeroGirlImage from "@/app/assets/hero/herogirl.png";
 import { LuCalendarDays } from "react-icons/lu";
 import { SiGoogleanalytics } from "react-icons/si";
 import { MdEmail } from "react-icons/md";
+import ScrollAnimation from "@/components/scrollanimation/scrollanimation";
 
 const Hero = () => {
   return (
@@ -18,7 +19,7 @@ const Hero = () => {
             preserveAspectRatio="none"
           >
             <path
-            className="dark:fill-bgdark transition-colors duration-900 ease-in-out"
+              className="dark:fill-bgdark transition-colors duration-900 ease-in-out"
               fill="#ffffff"
               d="M0,160 C360,320 1080,0 1440,160 L1440,320 L0,320 Z"
             />
@@ -27,27 +28,38 @@ const Hero = () => {
         <div className="relative container mx-auto py-4 lg:py-10 grid grid-cols-1 lg:grid-cols-2 gap-3">
           {/* Left side */}
           <div className="w-full mx-auto lg:mx-0 mb-16 lg:mb-0 flex flex-col justify-center items-center lg:justify-start lg:items-start">
-            <h1 className="max-w-xl text-4xl font-bold leading-tight text-txcolor md:text-5xl mx-auto lg:mx-0 text-center lg:text-start">
-              <span className="text-txspncolor">Studying</span>{" "}
-              <span>Online is now</span> <span>much easier</span>
-            </h1>
-            <p className="mt-6 text-xl text-txcolor max-w-md mx-auto lg:mx-0 ">
-              TOTC is an interesting platform that will teach you in more an
-              interactive way
-            </p>
+            <ScrollAnimation animation="slide-left">
+              <h1 className="max-w-xl text-4xl font-bold leading-tight text-txcolor  dark:text-fgdark md:text-5xl mx-auto lg:mx-0 text-center lg:text-start">
+                <span className="text-txspncolor dark:text-txcolor">
+                  Studying
+                </span>{" "}
+                <span>Online is now</span> <span>much easier</span>
+              </h1>
+
+              <p className="mt-6 text-xl text-txcolor max-w-md mx-auto lg:mx-0 dark:text-fgdark">
+                TOTC is an interesting platform that will teach you in more an
+                interactive way
+              </p>
+            </ScrollAnimation>
 
             <div className="mt-8 flex flex-col sm:flex-row  gap-4 mx-auto lg:mx-0">
               <Link
                 href={"/courses"}
-                className="px-6 py-3 text-lg font-semibold text-txcolor bg-bgprimary/50 rounded-full hover:bg-hoverbtn transition-all duration-300"
+                className="px-6 py-3 text-lg font-semibold text-txcolor bg-bgprimary/50 rounded-full hover:bg-hoverbtn transition-all duration-300 overflow-hidden"
               >
-                Join for free
+                <ScrollAnimation animation="slide-down" className="delay-200">
+                  Join for free
+                </ScrollAnimation>
               </Link>
               <button className="flex items-center justify-center space-x-3">
                 <div className="flex justify-center items-center h-12 w-12 bg-white text-bgprimary rounded-full">
-                  <FaPlay />
+                  <ScrollAnimation animation="slide-up" className="delay-300">
+                    <FaPlay />
+                  </ScrollAnimation>
                 </div>
-                <span className="text-txcolor">watch how it works</span>
+                <ScrollAnimation animation="slide-right" className="delay-400">
+                  <span className="text-txcolor">watch how it works</span>
+                </ScrollAnimation>
               </button>
             </div>
           </div>
